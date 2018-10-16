@@ -12,8 +12,8 @@ Kd1 = 1.0
 
 distance_new_cell = 9
 
-left_base = 90+5
-right_base = 90
+left_base = 80+5
+right_base = 80
 
 left_thresh = 27
 right_thresh = 27
