@@ -12,8 +12,8 @@ Kd1 = 1.0
 
 distance_new_cell = 9
 
-left_base = 80+5
-right_base = 80
+left_base = 85
+right_base = 85
 
 left_thresh = 27
 right_thresh = 27
@@ -246,7 +246,7 @@ try:
 				turn_motors(left_base,right_base)
 				sensor_array = mes_sense()
 
-				if (sensor_array[1]<11):
+				if (sensor_array[1]<15):
 					break
 
 		motors.setSpeeds(0,0)		
@@ -339,12 +339,14 @@ try:
 
 			yaw = 0
 
-			while yaw<65:
+			turn_motors(60,-60)		# Initial spot turn
+
+			while yaw<74:
 				gyro_z = read_raw_data(GYRO_ZOUT_H)
 				Gz = gyro_z/131.0
 				yaw = yaw + Gz
-				turn_motors(80,-80)		# Initial spot turn
 				time.sleep(0.1)
+			print ("My yaw is :" + str(yaw)	)
 
 
 			motors.setSpeeds(0,0)
@@ -397,12 +399,13 @@ try:
 		elif my_path[i] == 'L':
 			
 			yaw = 0
+			turn_motors(-60,60)
 
-			while yaw > -(60):
+			while yaw > -(80):
 				gyro_z = read_raw_data(GYRO_ZOUT_H)
 				Gz = gyro_z/131.0
 				yaw = yaw + Gz
-				turn_motors(-80,80)		# Initial spot turn
+				# Initial spot turn
 				time.sleep(0.1)
 
 			motors.setSpeeds(0,0)

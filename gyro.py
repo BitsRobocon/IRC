@@ -52,6 +52,7 @@ MPU_Init()
 
 print (" Reading Data of Gyroscope and Accelerometer")
 yaw=0
+t=0
 
 while True:
   
@@ -77,6 +78,8 @@ while True:
 
   #print ("Gx=%.2f" %Gx, "Gy=%.2f" %Gy,"  Gz=%.2f" %Gz) 
   yaw = yaw + Gz
+
+
 
   print yaw
 
