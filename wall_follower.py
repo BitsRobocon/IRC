@@ -12,8 +12,8 @@ Kd1 = 1.0
 
 distance_new_cell = 9
 
-left_base = 85
-right_base = 85
+left_base = 80
+right_base = 80
 
 left_thresh = 27
 right_thresh = 27
@@ -341,10 +341,12 @@ try:
 
 			turn_motors(60,-60)		# Initial spot turn
 
-			while yaw<74:
+			while True:
 				gyro_z = read_raw_data(GYRO_ZOUT_H)
 				Gz = gyro_z/131.0
 				yaw = yaw + Gz
+				if yaw>100:
+					break
 				time.sleep(0.1)
 			print ("My yaw is :" + str(yaw)	)
 
