@@ -1,7 +1,7 @@
-int echo1=A1,trig1=41,enable1=5,motinph1=32,motinpl1=33;
-int echo2=A2,trig2=42,enable2=2,motinph2=34,motinpl2=35;
-int echo3=A3,trig3=43,enable3=3,motinph3=36,motinpl3=37;
-int echo4=A4,trig4=44,enable4=4,motinph4=38,motinpl4=39;
+int echo1=A1,trig1=41,enable1=2,motinph1=39,motinpl1=38;
+int echo2=A2,trig2=42,enable2=3,motinph2=37,motinpl2=36;
+int echo3=A3,trig3=43,enable3=4,motinph3=35,motinpl3=34;
+int echo4=A4,trig4=44,enable4=5,motinph4=32,motinpl4=33;
 
 float distance1,distance2,distance3,distance4;
 
@@ -140,6 +140,15 @@ pinMode(echo1,INPUT);pinMode(trig1,OUTPUT);pinMode(enable1,OUTPUT);pinMode(motin
 pinMode(echo2,INPUT);pinMode(trig2,OUTPUT);pinMode(enable2,OUTPUT);pinMode(motinph2,OUTPUT);pinMode(motinpl2,OUTPUT);
 pinMode(echo3,INPUT);pinMode(trig3,OUTPUT);pinMode(enable3,OUTPUT);pinMode(motinph3,OUTPUT);pinMode(motinpl3,OUTPUT);
 pinMode(echo4,INPUT);pinMode(trig4,OUTPUT);pinMode(enable4,OUTPUT);pinMode(motinph4,OUTPUT);pinMode(motinpl4,OUTPUT);
+
+
+digitalWrite(32,HIGH);
+digitalWrite(33,LOW);
+analogWrite(5,255);
+delay(1000);
+digitalWrite(32,LOW);
+digitalWrite(33,LOW);
+analogWrite(5,0);
 
 digitalWrite(trig1,LOW);
 digitalWrite(trig2,LOW);
