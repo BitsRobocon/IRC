@@ -17,7 +17,7 @@ def io_init():
 
   wiringpi.pwmSetMode(wiringpi.GPIO.PWM_MODE_MS)
   wiringpi.pwmSetRange(MAX_SPEED)
-  wiringpi.pwmSetClock(2)
+  wiringpi.pwmSetClock(11)
 
   wiringpi.pinMode(5, wiringpi.GPIO.OUTPUT)
   wiringpi.pinMode(6, wiringpi.GPIO.OUTPUT)
