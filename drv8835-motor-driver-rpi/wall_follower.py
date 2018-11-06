@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-from pololu_drv8835_rpi import motors, MAX_SPEED
+#from pololu_drv8835_rpi import motors, MAX_SPEED
 import shlex
 import subprocess
 
@@ -36,7 +36,7 @@ oldErrorP1 = 0
 
 # try:
 
-motors.setSpeeds(0, 0)
+#motors.setSpeeds(0, 0)
 
 GPIO.setmode(GPIO.BCM)
 
