@@ -1,0 +1,90 @@
+[
+    {
+        "text_widget_id": 1970843120,
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970842992,
+        "editor_class": "Editor",
+        "time": "2018-11-11T15:59:20.858010",
+        "sequence": "EditorTextCreated"
+    },
+    {
+        "text_widget_id": 1970843120,
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970842992,
+        "editor_class": "Editor",
+        "time": "2018-11-11T15:59:20.859864",
+        "sequence": "Open",
+        "filename": "/home/pi/controller/simulate.py"
+    },
+    {
+        "text_widget_id": 1970843120,
+        "text_widget_class": "CodeViewText",
+        "sequence": "TextDelete",
+        "index2": "2.0",
+        "time": "2018-11-11T15:59:21.013913",
+        "index1": "1.0"
+    },
+    {
+        "text": "from evdev import InputDevice,categorize,ecodes\nimport  RPi.GPIO as GPIO\ngamepad = InputDevice('/dev/input/event0')\n#button codes\nA=304\nB=305\nY=308\nX=307\nR1=311\nL1=310\nselect=314\nstart=315\nhome=316\nL3=317\nR3=318\nR2=5\nL2=2\nLX=0\nLY=1\nRX=3\nRY=4\n\n#GPIOPins\nr1=2\nr2=3\nrs=4\nl1=5\nl2=6\nls=7\n\nGPIO.setwarnings(False)\nGPIO.cleanup()\n\nGPIO.setmode(GPIO.BCM)\nGPIO.setup(r1,GPIO.OUT)\nGPIO.setup(r2,GPIO.OUT)\nGPIO.setup(rs,GPIO.OUT)\nGPIO.setup(l1,GPIO.OUT)\nGPIO.setup(l2,GPIO.OUT)\nGPIO.setup(ls,GPIO.OUT)\n#*name = GPIO.PWM( *pinnumber,*frequency)  /duty cycle time =1/f\n#*name.start(*high percent)\n#*name.ChangeDutyCycle(*high percent)\n#*name.ChangeFrequency(*new frequency)\n#*name.stop()\nrx=0\nry=0\nrms=0\nlms=0\nfor event in gamepad.read_loop():\n   if event.value!=0:\n      if event.code is RY:\n       ry=-event.value/415\n      if event.code is RX:\n       rx=(event.value/365)/4\n      rms=ry-rx\n      lms=ry+rx\n      rm=GPIO.PWM(rs,50)\n      lm=GPIO.PWM(ls,50)\n      if(rms>0):\n       GPIO.output(r1,GPIO.HIGH)\n       GPIO.output(r2,GPIO.LOW)\n#       rm.start(rms)\n      if(rms<0):\n       GPIO.output(r1,GPIO.LOW)\n       GPIO.output(r2,GPIO.HIGH)\n#       rm.start(-rms)\n      if(lms>0):\n       GPIO.output(l1,GPIO.HIGH)\n       GPIO.output(l2,GPIO.LOW)\n#       lm.start(lms)\n      if(lms<0):\n       GPIO.output(l1,GPIO.LOW)\n       GPIO.output(l2,GPIO.HIGH)\n#       lm.start(-lms)\n      print \"LS= \"+str(lms)+\"   RS= \"+str(rms)\n",
+        "text_widget_id": 1970843120,
+        "text_widget_class": "CodeViewText",
+        "sequence": "TextInsert",
+        "time": "2018-11-11T15:59:21.050447",
+        "tags": "()",
+        "index": "1.0"
+    },
+    {
+        "view_id": 1970792400,
+        "time": "2018-11-11T15:59:21.080288",
+        "view_class": "ShellView",
+        "sequence": "ShowView"
+    },
+    {
+        "time": "2018-11-11T15:59:21.541008",
+        "widget_id": 1983351312,
+        "sequence": "<FocusIn>",
+        "widget_class": "Workbench"
+    },
+    {
+        "text": "Python 3.5.3 (/usr/bin/python3)",
+        "text_widget_id": 1970792688,
+        "index": "1.0",
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "time": "2018-11-11T15:59:21.567318",
+        "tags": "('welcome',)",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": "\n",
+        "text_widget_id": 1970792688,
+        "index": "1.31",
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "time": "2018-11-11T15:59:21.574467",
+        "tags": "('io',)",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": ">>> ",
+        "text_widget_id": 1970792688,
+        "index": "2.0",
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "time": "2018-11-11T15:59:21.577734",
+        "tags": "('toplevel', 'prompt')",
+        "text_widget_context": "shell"
+    },
+    {
+        "time": "2018-11-11T15:59:24.279400",
+        "command_id": "interrupt",
+        "sequence": "Command",
+        "denied": "True"
+    },
+    {
+        "time": "2018-11-11T15:59:59.294729",
+        "command_id": "interrupt",
+        "sequence": "Command",
+        "denied": "True"
+    }
+]

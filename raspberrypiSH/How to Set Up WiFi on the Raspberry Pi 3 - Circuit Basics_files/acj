@@ -1,0 +1,11 @@
+OX_2025794241({
+  "ads":{
+    "chain":1,
+    "medium":"w",
+    "record_tmpl":"http://delivery-asia-northeast-1.openx.net/{medium}/1.0/{rtype}?ph=94ef58655625200a8cfc5b15afcd0b94ad52d590&ts={txn_state}",
+    "pixels":"http://jp-u.openx.net/w/1.0/pd?plm=10&ph=94ef58655625200a8cfc5b15afcd0b94ad52d590&gdpr=0",
+    "oxt": 4.334,
+    "adunits" : [
+    ]
+  }
+});
